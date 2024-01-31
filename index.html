@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue-ToDoList</title>
+    
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Bootstrap Css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+    <!-- Link css -->
+    <link rel="stylesheet" href="./css/style.css">
+    
+    <!-- Vue 3 cdn -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- Js -->
+    <script src="./js/main.js" defer></script>
+</head>
+<body>
+    <div id="app">
+        <div class="container mt-5">
+            <h1>{{ title }}</h1>
+            <hr>
+            <h2>Aggiungi Serie Tv da vedere</h2>
+            <input v-model="newserie.name" type="text" class="form-control my-3" />
+            <button @click="savenewserie()" class="btn btn-info my-3"><i class="fa-solid fa-share text-black"></i> Aggiungi</button>
+            <hr>
+            <div class="row">
+                <div class="col-4">
+                    <h2> Serie Tv da vedere</h2>
+                    <ul class="p-0">
+                        <li v-for="(serie, index) in serietv" v-show="!serie.done" class="task p-3 mb-3">
+                            <div @click="setserieDone(serie)" class="nameserie">{{ serie.name }}</div>
+                            <div class="actions">
+                                <i @click="setserieDone(serie)" class="fa-solid fa-check text-success p-2"></i>
+                                <i @click="rimuoviserie(index)" class="fa-solid fa-trash text-danger p-2"></i>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <h2>Serie Tv viste</h2>
+                    <ul class="p-0">
+                        <li v-for="(serie, index) in serietv" v-show="serie.done" class="task p-3 mb-3">
+                            <div @click="setserieFalse(serie)" class="nameserie">{{ serie.name }}</div>
+                            <div class="actions">
+                                <i @click="setserieFalse(serie)" class="fa-solid fa-arrow-rotate-right text-warning p-2"></i>
+                                <i @click="rimuoviserie(index)" class="fa-solid fa-trash text-danger p-2"></i>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <h2>Serie Tv cestinate</h2>
+                    <ul class="p-0">
+                        <li v-for="(serie, index) in serietv " v-show="!serie.trash" class="task p-3 mb-3">
+                            <div>{{ serie.name }}</div>
+                            <div class="actions">
+                                <i @click="setserieFalse(serie)" class="fa-solid fa-arrow-rotate-right text-warning p-2"></i>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap Js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

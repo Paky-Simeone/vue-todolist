@@ -1,0 +1,15 @@
+.task{
+    background-color: rgb(162, 162, 221);
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px 10px;
+}
+
+.task i{
+    cursor: pointer;
+    display: inline-block;
+}
+
+.nameserie{
+    cursor: pointer;
+}
