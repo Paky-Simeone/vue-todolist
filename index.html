@@ -54,17 +54,6 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-4">
-                    <h2>Serie Tv cestinate</h2>
-                    <ul class="p-0">
-                        <li v-for="(serie, index) in serietv " v-show="!serie.trash" class="task p-3 mb-3">
-                            <div>{{ serie.name }}</div>
-                            <div class="actions">
-                                <i @click="setserieFalse(serie)" class="fa-solid fa-arrow-rotate-right text-warning p-2"></i>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </div>
     </div>

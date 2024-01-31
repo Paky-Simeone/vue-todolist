@@ -9,39 +9,32 @@ const app = createApp({
                 {
                     name: 'How i met your mom',
                     done: true,
-                    trash: true,
                 },
                 {
                     name: 'Friends',
                     done: true,
-                    trash: true,
                 },
                 {
                     name: 'Peaky Blinders',
                     done: true,
-                    trash: true,
                 },
                 {
                     name: 'Narcos',
                     done:  false,
-                    trash: true,
                 },
                 {
                     name: 'Outer Banks',
                     done:  false,
-                    trash: true,
                 },
                 {
                     name: 'Gossip Girl',
                     done:  false,
-                    trash: true,
                 },
             ],
 
             newserie: {
                 name: '',
                 done: false,
-                trash: true,
             },
         };
     },
@@ -54,7 +47,7 @@ const app = createApp({
         },
 
         rimuoviserie(index){
-        index.trash = true;
+        this.serietv.splice(index, 1);
         },
 
         setserieDone(serie){
